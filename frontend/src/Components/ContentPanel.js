@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import Box from '@mui/material/Box';
 import { TextField } from '@mui/material';
 import BlogPost from './BlogPost';
 import Pagination from '@mui/material/Pagination';
 import '../App.css';
+
+import { AppStateContext } from "../App";
 
 function RenderPost(title, body){
   return (
@@ -19,6 +22,8 @@ function RenderPosts( numberOfPosts ){
 }
 
 function ContentPanel(){
+  const context = useContext(AppStateContext);
+  console.log(context.appState.isLoading);
   return (
     <Box sx={{ display: "flex"}}>
       {/* TODO: remove when the screen is too small */}
