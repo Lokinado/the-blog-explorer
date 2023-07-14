@@ -3,27 +3,54 @@ import Box from '@mui/material/Box';
 import { TextField } from '@mui/material';
 import BlogPost from './BlogPost';
 import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
 import '../App.css';
 
 import { AppStateContext } from "../App";
 
-function RenderPost(title, body){
+function RenderPost(title, body , userId){
   return (
-    <BlogPost title={title} body={body}/>
+    <BlogPost title={title} body={body} userId={userId}/>
   );
 }
 
-function RenderPosts( numberOfPosts ){
+function RenderPosts( posts ){
   let ret = [];
-  for(let i = 0 ; i < numberOfPosts; i ++ ){
-    ret.push( RenderPost("Al Bundy", "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto") );
+  for(let post of posts ){
+    ret.push( RenderPost(post.title, post.body, post.userId) );
   }
   return ret;
 }
 
 function ContentPanel(){
+  console.log("RERENDER");
   const context = useContext(AppStateContext);
-  console.log(context.appState.isLoading);
+
+  const handlePageChange = (event, value) => {
+    context.setAppState({
+      ...context.appState,
+      currentPage: value-1,
+      isLoading: true
+    })
+  };
+
+  const handleTextChange = (event) => {
+    context.setAppState({
+      ...context.appState,
+      textAreaValue: event.target.value,
+    })   
+  }
+
+  const onSubmit = (event) => {
+    context.setAppState({
+      ...context.appState,
+      queryString: context.appState.textAreaValue,
+      isLoading: true
+    })   
+  }
+
   return (
     <Box sx={{ display: "flex"}}>
       {/* TODO: remove when the screen is too small */}
@@ -36,16 +63,29 @@ function ContentPanel(){
         width: "33vw"
       }} >
         <div style={{borderBottom: "1px solid #1976D2", padding: "8px"}}>
-          <TextField fullWidth label="Search" id="Search" />
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <TextField fullWidth label="Search" id="Search" onChange={handleTextChange}/>
+            <IconButton aria-label="delete" size="Large" onClick={onSubmit}>
+              <SearchIcon fontSize="inherit" />
+            </IconButton>
+          </Stack>
         </div>
         <div style={{padding: "8px"}}>
-          {RenderPosts(7)}
+          { context.appState.isLoading ? <div></div> : RenderPosts(context.appState.posts)}
         </div>
-        {/* <div style={{padding: "8px", textAlign: "center"}}>
-          <Pagination count={10} size="small" variant="outlined" shape="rounded" />
-        </div> */}
-        <Pagination className='center-pagination' count={10} size="small" variant="outlined" shape="rounded"/>
-        
+        { context.appState.isLoading ? <div></div> : 
+        <Pagination 
+          className='center-pagination' 
+          size="small" 
+          variant="outlined" 
+          shape="rounded"
+          boundaryCount={2} 
+          siblingCount={1}
+          count={context.appState.numberOfPages}
+          page={context.appState.currentPage + 1}
+          onChange={handlePageChange} 
+        />
+        }
       </Box>
       <Box sx={{ flexGrow: 1 }}/>
     </Box>

@@ -4,6 +4,7 @@ import Avatar from './Avatar';
 import '../App.css';
 
 function BlogPost(props){
+  let pathToUserAvatar = "/images/avatars/" + props.userId + ".jpeg";
   return(
     <Box sx={{
       width:"100%",
@@ -13,9 +14,8 @@ function BlogPost(props){
       marginBottom: "24px",
       paddingTop: "8px"
     }}>
-      {/* <div style={{marginLeft: "8px", display: "flex"}}> */}
       <div className='blog-post-container'>
-        <Avatar src="/images/avatars/1.jpeg" size={40} />
+        <Avatar src={pathToUserAvatar} size={40} />
         <div className='blog-post-title-container'>
           <div className='title'> {props.title} </div>
           <div className='body'> {props.body} </div>

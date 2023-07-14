@@ -4,10 +4,6 @@ const port = 8000
 
 const postsPerPage = 7;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
 app.get('/posts/:pageNumber', async (req, res) => {
   const content = fetch("https://jsonplaceholder.typicode.com/posts/");
   const posts = await (await content).json();
