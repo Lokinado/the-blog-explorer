@@ -6,6 +6,9 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
 import '../App.css';
 
 import { AppStateContext } from "../App";
@@ -47,14 +50,24 @@ function ContentPanel(){
     context.setAppState({
       ...context.appState,
       queryString: context.appState.textAreaValue,
+      currentPage: 0,
       isLoading: true
-    })   
+    })  
+  }
+
+  const handleSortingChange = (event) => {
+    context.setAppState({
+      ...context.appState,
+      sorting: event.target.value,
+      currentPage: 0,
+      isLoading: true
+    })  
   }
 
   return (
     <Box sx={{ display: "flex"}}>
       {/* TODO: remove when the screen is too small */}
-      <Box sx={{ flexGrow: 1 }}/> 
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}/> 
       <Box 
       sx={{ 
         flexGrow: 1,
@@ -69,8 +82,24 @@ function ContentPanel(){
               <SearchIcon fontSize="inherit" />
             </IconButton>
           </Stack>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <InputLabel> Sort By </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              defaultValue={"none"}
+              size="small"
+              onChange={handleSortingChange}
+            >
+              <MenuItem value={"none"}>None</MenuItem>
+              <MenuItem value={"desc"}>Most Interesting</MenuItem>
+              <MenuItem value={"asc"}>Least Interesting</MenuItem>
+            </Select>
+          </Stack>
+          
         </div>
         <div style={{padding: "8px"}}>
+        { context.appState.isLoading ? <div></div> : <InputLabel> Found {context.appState.numberOfPosts} posts</InputLabel>}
           { context.appState.isLoading ? <div></div> : RenderPosts(context.appState.posts)}
         </div>
         { context.appState.isLoading ? <div></div> : 
@@ -87,7 +116,7 @@ function ContentPanel(){
         />
         }
       </Box>
-      <Box sx={{ flexGrow: 1 }}/>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}/>
     </Box>
   );
 }

@@ -9,7 +9,7 @@ import HelpIcon from '@mui/icons-material/Help';
 
 function MainAppbar(){
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
       <AppBar position="static">
         <Toolbar>
           <Typography
@@ -20,7 +20,7 @@ function MainAppbar(){
           >
             The Blog Explorer
           </Typography>
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: 'flex' }}>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"

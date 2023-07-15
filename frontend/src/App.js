@@ -11,15 +11,19 @@ function App() {
     isLoading: true,
     currentPage: 0,
     numberOfPages: null,
+    numberOfPosts: null,
     posts: null,
     textAreaValue: "",
     queryString: "",
+    sorting: "none",
   });
 
   useEffect(() => {
     //I did this in order to avoid returning an promise from useEffect
     (async ()=>{
-      const url = "/posts/" + appState.currentPage.toString() + "?q=" + encodeURIComponent(appState.queryString);
+      const url = "/posts/" + appState.currentPage.toString() + 
+      "?q=" + encodeURIComponent(appState.queryString) +
+      "&sort=" + appState.sorting;
 
       const request = fetch( url ); 
       const responce = await ( await request ).json();
@@ -28,14 +32,16 @@ function App() {
         isLoading: false,
         currentPage: parseInt(responce.pageNumber),
         numberOfPages: responce.numberOfPages,
+        numberOfPosts: responce.numberOfPosts,
         posts: responce.posts,
         queryString: appState.queryString,
-        textAreaValue: appState.textAreaValue
+        textAreaValue: appState.textAreaValue,
+        sorting: appState.sorting
       })
 
     })();
 
-  }, [appState.currentPage, appState.queryString]);
+  }, [appState.currentPage, appState.queryString, appState.sorting]);
 
   return (
     <div className='page-container'>
