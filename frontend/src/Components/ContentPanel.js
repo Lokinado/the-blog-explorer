@@ -51,7 +51,7 @@ function ContentPanel(){
       ...context.appState,
       queryString: context.appState.textAreaValue,
       currentPage: 0,
-      isLoading: true
+      isLoading: true,
     })  
   }
 

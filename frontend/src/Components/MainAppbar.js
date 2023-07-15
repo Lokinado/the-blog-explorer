@@ -1,13 +1,23 @@
-import * as React from 'react';
+import { useContext } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import SettingsIcon from '@mui/icons-material/Settings';
-import HelpIcon from '@mui/icons-material/Help';
+import Brightness6Icon from '@mui/icons-material/Brightness6';
+
+import { AppStateContext } from "../App";
 
 function MainAppbar(){
+  const context = useContext(AppStateContext);
+
+  const handleDarkModeChange = () => {
+    context.setAppState({
+      ...context.appState,
+      colorMode: !context.appState.colorMode,
+    })
+  }
+
   return (
     <Box sx={{ flexGrow: 1}}>
       <AppBar position="static">
@@ -23,21 +33,11 @@ function MainAppbar(){
           <Box sx={{ display: 'flex' }}>
             <IconButton
               size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <HelpIcon />
-            </IconButton>
-            <IconButton
-              size="large"
               edge="end"
-              aria-label="account of current user"
-              //aria-controls={menuId}
-              aria-haspopup="true"
-              //onClick={handleProfileMenuOpen}
+              onClick={handleDarkModeChange}
               color="inherit"
             >
-              <SettingsIcon />
+              <Brightness6Icon />
             </IconButton>
           </Box>
         </Toolbar>
