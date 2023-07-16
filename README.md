@@ -38,8 +38,8 @@ You will need to install packages for frontend and backend and then run those in
 <br>
 
 ## Prerequisites
-* [Node] (https://nodejs.org/en)
-* [NPM] (https://www.npmjs.com/)
+* [Node](https://nodejs.org/en)
+* [NPM](https://www.npmjs.com/)
 <br>
 
 ## Build & Run
@@ -57,7 +57,7 @@ npm i
 ```sh
 npm run start
 ```
-Express backend should run on localhost:8000
+Express backend should run on localhost:8000 <br>
 4. Install npm packages for frontend (in a new terminal window)
 ```sh
 cd the-blog-explorer/frontend
