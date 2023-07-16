@@ -33,7 +33,7 @@ The most noteworthy frameworks and technologies.
 <br>
 
 # Getting Started
-You will need to install packages for frontend and backend and then run those in seperate terminal windows.
+To get started, install packages for the frontend and backend. Afterward, open two separate terminal windows and run each of them.
 
 <br>
 
