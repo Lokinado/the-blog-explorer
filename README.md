@@ -80,7 +80,7 @@ Posts are conveniently seperated into multiple pages. If there are more posts av
 
 <br>
 
-App supports dark and light theme based on your device system settings. Darkmode can be toggled using an button in the top right corner.
+App supports dark and light theme based on your device system settings. Darkmode can be toggled using a button in the top right corner.
 
 <br>
 
