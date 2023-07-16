@@ -4,14 +4,13 @@ import Avatar from './Avatar';
 import { useTheme } from '@mui/material/styles';
 import '../App.css';
 
-function BlogPost(props){
+function BlogPost(props) {
   let pathToUserAvatar = "/images/avatars/" + props.userId + ".jpeg";
   const theme = useTheme();
-  return(
+  return (
     <Box sx={{
-      width:"100%",
+      width: "100%",
       boxShadow: "8px 8px 8px 0px rgba(66, 68, 90, 0.2)",
-      //backgroundColor: "#eeeeee",
       borderRadius: "4px",
       marginBottom: "24px",
       paddingTop: "8px",

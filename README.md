@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+![GitHub](https://img.shields.io/github/license/Lokinado/the-blog-explorer?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/Lokinado/the-blog-explorer?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/Lokinado/the-blog-explorer?style=for-the-badge)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <h1 align="center" style="border-bottom: none; margin-bottom: 0">
+        <strong>
+            The Blog Explorer
+        </strong>
+    </h1>
 
-## Available Scripts
+  <p align="center">
+    simple web app to search in the archive of The Blog
+    <br />
+  </p>
+</p>
 
-In the project directory, you can run:
+<br><br>
 
-### `npm start`
+# About The Project
+The Blog Explorer is an assesment project as a part of
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Github Repo](https://github.com/Lokinado/the-blog-explorer)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `npm test`
+## Build With
+The most noteworthy frameworks and technologies.
+* [React](https://reactjs.org/)
+* [Express](https://expressjs.com/)
+* [Material UI](https://mui.com/) 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+# Getting Started
+You will need to install packages for frontend and backend respectively.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Prerequisites
+* [Node] (https://nodejs.org/en)
+* [NPM] (https://www.npmjs.com/)
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Build & Run
+1. Clone the repo
+```sh
+git clone https://github.com/Lokinado/the-blog-explorer
+cd the-blog-explorer
+```
+2. Install npm packages
+```sh
+docker-compose up
+```
+3. App should run on localhost on port 80. Can be changed in .env file.
+```env
+ADDRESS=localhost
+PORT=80
+```
 
-### `npm run eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Usage
+DO THIS LATER Go to localhost in your internet browser
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Roadmap
+No updates are planned in the near future.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br>
 
-## Learn More
+# Licence
+Distributed under the MIT License. See `LICENSE` for more information.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Contact
+Made with love by Krzysztof Borowski - krzysztofborowski02@gmail.com
+<br>
+Project Link: https://github.com/Lokinado/the-blog-explorer

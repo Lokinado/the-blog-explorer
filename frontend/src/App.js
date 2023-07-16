@@ -6,12 +6,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './App.css';
 
-export const AppStateContext = React.createContext( null );
+export const AppStateContext = React.createContext(null);
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-  const [appState, setAppState] = useState( {
+  const [appState, setAppState] = useState({
     isLoading: true,
     currentPage: 0,
     numberOfPages: null,
@@ -25,14 +25,14 @@ function App() {
 
   useEffect(() => {
     //I did this in order to avoid returning an promise from useEffect
-    (async ()=>{
-      const url = "/posts/" + appState.currentPage.toString() + 
-      "?q=" + encodeURIComponent(appState.queryString) +
-      "&sort=" + appState.sorting;
+    (async () => {
+      const url = "/posts/" + appState.currentPage.toString() +
+        "?q=" + encodeURIComponent(appState.queryString) +
+        "&sort=" + appState.sorting;
 
-      const request = fetch( url ); 
-      const responce = await ( await request ).json();
-    
+      const request = fetch(url);
+      const responce = await (await request).json();
+
       setAppState({
         isLoading: false,
         currentPage: parseInt(responce.pageNumber),
@@ -64,9 +64,9 @@ function App() {
     <div className='page-container'>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <AppStateContext.Provider value={{appState: appState, setAppState: setAppState}}>
-          <MainAppbar/>
-          <ContentPanel/>
+        <AppStateContext.Provider value={{ appState: appState, setAppState: setAppState }}>
+          <MainAppbar />
+          <ContentPanel />
         </AppStateContext.Provider>
       </ThemeProvider>
     </div>

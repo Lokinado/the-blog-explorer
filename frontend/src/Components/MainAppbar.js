@@ -8,7 +8,7 @@ import Brightness6Icon from '@mui/icons-material/Brightness6';
 
 import { AppStateContext } from "../App";
 
-function MainAppbar(){
+function MainAppbar() {
   const context = useContext(AppStateContext);
 
   const handleDarkModeChange = () => {
@@ -19,14 +19,14 @@ function MainAppbar(){
   }
 
   return (
-    <Box sx={{ flexGrow: 1}}>
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }}}
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
             The Blog Explorer
           </Typography>
