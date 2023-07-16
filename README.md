@@ -18,7 +18,7 @@
 <br><br>
 
 # About The Project
-The Blog Explorer is an assesment project as a part of
+The Blog Explorer is an assesment project.
 
 [Github Repo](https://github.com/Lokinado/the-blog-explorer)
 
@@ -33,7 +33,7 @@ The most noteworthy frameworks and technologies.
 <br>
 
 # Getting Started
-You will need to install packages for frontend and backend respectively.
+You will need to install packages for frontend and backend and then run those in seperate terminal windows.
 
 <br>
 
@@ -48,20 +48,39 @@ You will need to install packages for frontend and backend respectively.
 git clone https://github.com/Lokinado/the-blog-explorer
 cd the-blog-explorer
 ```
-2. Install npm packages
+2. Install npm packages for backend
 ```sh
-docker-compose up
+cd backend
+npm i
 ```
-3. App should run on localhost on port 80. Can be changed in .env file.
-```env
-ADDRESS=localhost
-PORT=80
+3. Run node server
+```sh
+npm run start
 ```
+Express backend should run on localhost:8000
+4. Install npm packages for frontend (in a new terminal window)
+```sh
+cd the-blog-explorer/frontend
+npm i
+```
+5. Run frontend server
+```sh
+npm run start
+```
+React app should run on localhost:3000
 
 <br>
 
 # Usage
-DO THIS LATER Go to localhost in your internet browser
+Go to localhost:3000 in your internet browser. To find a specific post you can use search bar located in the middle of the web page. You can use this search bar to quickly find specific blog posts based on keywords or REGEX. Simply enter your search query and click the search button. The app will then display the relevant posts matching your search criteria.
+
+<br>
+
+Posts are conveniently seperated into multiple pages. If there are more posts available than what can displayed on the current page, you can use the pagination buttons on the bottom to navigate through the different pages.
+
+<br>
+
+App supports dark and light theme based on your device system settings. Darkmode can be toggled using an button in the top right corner.
 
 <br>
 
