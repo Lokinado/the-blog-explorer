@@ -38,8 +38,14 @@ app.get('/posts/:pageNumber', async (req, res) => {
   let regexString = "";
   regexString = validateQuery(req);
 
-  const content = fetch("https://jsonplaceholder.typicode.com/posts/");
-  const posts = await (await content).json();
+  let content, posts;
+  try {
+    content = fetch("https://jsonplaceholder.typicode.com/posts/");
+    posts = await (await content).json();
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+    return;
+  }
 
   // In case when we need to change the api for fetching posts
   // I assume that we always recieve json array of some blog post objects

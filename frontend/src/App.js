@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import MainAppbar from './Components/MainAppbar';
 import ContentPanel from './Components/ContentPanel';
+import ErrorMessage from './Components/ErrorMessage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -20,7 +21,8 @@ function App() {
     textAreaValue: "",
     queryString: "",
     sorting: "none",
-    colorMode: prefersDarkMode
+    colorMode: prefersDarkMode,
+    isDisconnected: false
   });
 
   useEffect(() => {
@@ -30,8 +32,17 @@ function App() {
         "?q=" + encodeURIComponent(appState.queryString) +
         "&sort=" + appState.sorting;
 
-      const request = fetch(url);
-      const responce = await (await request).json();
+      let request, responce;
+      try {
+        request = fetch(url);
+        responce = await (await request).json();
+      } catch (error) {
+        setAppState({
+          ...appState,
+          isDisconnected: true
+        })
+        return;
+      }
 
       setAppState({
         isLoading: false,
@@ -42,7 +53,8 @@ function App() {
         queryString: appState.queryString,
         textAreaValue: appState.textAreaValue,
         sorting: appState.sorting,
-        colorMode: appState.colorMode
+        colorMode: appState.colorMode,
+        isDisconnected: false
       })
 
     })();
@@ -66,7 +78,7 @@ function App() {
         <CssBaseline />
         <AppStateContext.Provider value={{ appState: appState, setAppState: setAppState }}>
           <MainAppbar />
-          <ContentPanel />
+          {appState.isDisconnected ? <ErrorMessage /> : <ContentPanel />}
         </AppStateContext.Provider>
       </ThemeProvider>
     </div>

@@ -4,16 +4,16 @@ import Pagination from '@mui/material/Pagination';
 import InputLabel from '@mui/material/InputLabel';
 import { AppStateContext } from "../App";
 
-function RenderPost(title, body, userId) {
+function RenderPost(postId, title, body, userId) {
   return (
-    <BlogPost title={title} body={body} userId={userId} />
+    <BlogPost key={postId} title={title} body={body} userId={userId} />
   );
 }
 
 function RenderPosts(posts) {
   let ret = [];
   for (let post of posts) {
-    ret.push(RenderPost(post.title, post.body, post.userId));
+    ret.push(RenderPost(post.id, post.title, post.body, post.userId));
   }
   return ret;
 }
