@@ -33,7 +33,7 @@ The most noteworthy frameworks and technologies.
 <br>
 
 # Getting Started
-You will need to install packages for frontend and backend and then run those in seperate terminal windows.
+To get started, install packages for the frontend and backend. Afterward, open two separate terminal windows and run each of them.
 
 <br>
 
@@ -80,7 +80,7 @@ Posts are conveniently seperated into multiple pages. If there are more posts av
 
 <br>
 
-App supports dark and light theme based on your device system settings. Darkmode can be toggled using an button in the top right corner.
+App supports dark and light theme based on your device system settings. Darkmode can be toggled using a button in the top right corner.
 
 <br>
 
