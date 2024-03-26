@@ -1,3 +1,25 @@
+<!--
++++
+author = "Krzysztof Borowski"
+title = "The blog explorer"
+date = "2023-07-13"
+description = "Simple web app to search in the archive of The Blog. It was recruitment task for software developer position. Currently it serves as a demo of my frontend work."
+summary = "Simple web app to search in the archive of The Blog. It was recruitment task for software developer position. Currently it serves as a demo of my frontend work."
+draft="false"
+tags = [
+    "javascript", 
+    "react",
+    "node",
+    "express"
+]
+categories = [
+    "webdev",
+    "full stack",
+    "recruitment"
+]
++++
+-->
+
 ![GitHub](https://img.shields.io/github/license/Lokinado/the-blog-explorer?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/Lokinado/the-blog-explorer?style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/Lokinado/the-blog-explorer?style=for-the-badge)
