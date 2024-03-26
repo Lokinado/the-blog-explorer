@@ -10,7 +10,7 @@
     </h1>
 
   <p align="center">
-    simple web app to search in the archive of The Blog
+    Simple web app to search in the archive of The Blog
     <br />
   </p>
 </p>
